@@ -13,11 +13,18 @@
 */
 
 object Base64 {
+
+  def main(args:Array[String]):Unit = {
+    println(encrypt("ManMan1"))
+    println(decrypt("dSyUd30D4M"))
+    println(code("ManMan13", "Ud30D4M"))
+  }
+
   private[this] final val base: String = new String((('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toArray) + "+/"
 
   private[this] final def convert(str: String): String = {
     val sb = new StringBuilder
-    str.toCharArray.map(r => String.format("%7s", r.toByte.toBinaryString)).addString(sb).toString
+    str.replaceAll(" ", "").toCharArray.map(r => String.format("%7s", r.toByte.toBinaryString).replace(' ', '0')).addString(sb).toString
   }
 
   @scala.annotation.tailrec
@@ -32,10 +39,10 @@ object Base64 {
   private[this] final def rec(d: Int, t: Int, result: String, source: String, rem: Int): String = {
     println(source)
     if(d == (source.length - rem) || (rem == 0 && d == source.length)) {
-      base(BigInt(source.drop(d).take(rem), 2).toByte) + result
-    } else {
-      rec(d+6, t, base(BigInt(source.drop(d).take(t), 2).toByte) + result , source, rem)
-    }
+      if(rem == 0) result
+      else base(BigInt(source.drop(d).take(rem), 2).toByte) + result
+    } else rec(d+6, t, base(BigInt(source.drop(d).take(t), 2).toByte) + result , source, rem)
+
   }
 
   @scala.annotation.tailrec
