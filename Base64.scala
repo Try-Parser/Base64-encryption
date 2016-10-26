@@ -24,7 +24,8 @@ object Base64 {
 
   private[this] final def convert(str: String): String = {
     val sb = new StringBuilder
-    str.replaceAll(" ", "").toCharArray.map(r => String.format("%7s", r.toByte.toBinaryString).replace(' ', '0')).addString(sb).toString
+    str.replaceAll(" ", "").toCharArray.map(r => String.format("%7s", r.toByte.toBinaryString).replace(' ', '0'))
+       .addString(sb).toString
   }
 
   @scala.annotation.tailrec
