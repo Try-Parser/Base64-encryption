@@ -3,11 +3,6 @@
    Date-created: October-26-2016
    Description:
       Base64 for scala encoding encryption and decryption.
-   Note:
-      Those who want to use this code please feel free to use this is for all,
-      and if you found out something wrong please feel free to contact me asap
-      send the issue to franklin.embate@gmail.com or contact me in facebook
-      link: https://www.facebook.com/MEET.YOUR.MAST3R
    Repository:
       https://github.com/Try-Parser/Base64-encryption
 */
