@@ -1,5 +1,5 @@
 /*
-   Author: Franklin Embate
+   Author: Try-Parser
    Date-created: October-26-2016
    Description:
       Base64 for scala encoding encryption and decryption.
